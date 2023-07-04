@@ -2,7 +2,7 @@ Feature: Crud usuario
 
   Background: login user mapper
     Given login usuario mapper
-    And clicar em Administração
+    And clicar em Administração na lateral
     And clicar em Usuario
     When abrira a tela de cadastro de Usuario
 

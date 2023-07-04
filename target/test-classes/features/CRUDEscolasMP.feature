@@ -59,21 +59,20 @@ Feature: Crud escola
     Then a mensagem de alteracao da escola "<mensagem>"
 
     Examples: 
-      | nome    | cidade    | estado | nome2   | cidade2        | estado2             |mensagem              |
-      | escola1 | Brasília  | DF     | Escola1 | Salvador       | Bahia               |Alterado com sucesso! |
-      | escola2 | São Paulo | SP     | Escola2 | Rio de Janeiro | Rio de Janeiro      |Alterado com sucesso! |
-      | escola3 | Salvado   | BA     | Escola3 | Natal          | Rio Grande do Norte |Alterado com sucesso! |
-      | escola4 | Brasília  | DF     | Escola4 | Campinas       | São Paulo           |Alterado com sucesso! |
+      | nome    | cidade    | estado | nome2   | cidade2        | estado2        | mensagem              |
+      | escola1 | Brasília  | DF     | Escola1 | Salvador       | Bahia          | Alterado com sucesso! |
+      | escola2 | São Paulo | SP     | Escola2 | Rio de Janeiro | Rio de Janeiro | Alterado com sucesso! |
+      | escola3 | Salvado   | BA     | Escola3 | Rio de Janeiro | Rio de Janeiro | Alterado com sucesso! |
+      | escola4 | Brasília  | DF     | Escola4 | Campinas       | São Paulo      | Alterado com sucesso! |
 
   @web @escola @excluir
   Scenario Outline: Excluir escola
     And role a pagina de escola
     And buscar o escola "<nome>"
     And clicar no icone de exclusão de escola
-
-    #Then a mensagem "<mensagem>"
+		Then a mensagem "<mensagem>" de escola deletada
     Examples: 
-      | email   | mensagem              |
+      | nome    | mensagem              |
       | Escola1 | Deletado com sucesso! |
       | Escola2 | Deletado com sucesso! |
       | Escola3 | Deletado com sucesso! |

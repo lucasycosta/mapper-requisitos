@@ -1,7 +1,7 @@
 Feature: Crud permissao
 
-  Background: login
-    Given login permissao
+  Background: login permissao mapper
+    Given login permissao mapper
     And clicar em Administracao no menu lateral
     And clicar em Permissao
     And abrira a tela de cadastro de Permissao
