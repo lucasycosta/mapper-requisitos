@@ -222,7 +222,7 @@ public class EscolaMP {
 
 	@When("clicar no icone de edicao da respectiva escola")
 	public void clicar_no_icone_de_edicao_da_respectiva_escola() {
-		driver.findElement(By.cssSelector("button[data-v-bf2fbb02]")).click();
+		driver.findElement(By.cssSelector("div[data-tip='Editar']")).click();
 	}
 
 	@When("os dados da escola serao retornados")
@@ -283,18 +283,18 @@ public class EscolaMP {
 		buscar = wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("input[name='search']")));
 		buscar.click();
 		buscar.sendKeys(string);
-
-		driver.findElement(By.cssSelector("button[class='absolute right-0 px-3 py-2 text-neutral-400 hover:text-neutral-600']")).click();
+		buscar.sendKeys(Keys.ENTER);
 	}
 
 	@When("clicar no icone de exclusão de escola")
 	public void clicar_no_icone_de_exclusão_de_escola() throws InterruptedException {
-		Thread.sleep(2000);
-		driver.findElement(By.cssSelector("button[data-v-bf2fbb02")).click();
+		Thread.sleep(1000);
+		driver.findElement(By.cssSelector("div[data-tip='Deletar']")).click();
 	}
 	
 	@Then("a mensagem {string} de escola deletada")
-	public void a_mensagem_de_escola_deletada(String string) {
+	public void a_mensagem_de_escola_deletada(String string) throws InterruptedException {
+		Thread.sleep(1000);
 		int qtdScrolls = 10;
 		for (int i = 0; i < qtdScrolls; i++) {
 			driver.findElement(By.tagName("body")).sendKeys(Keys.UP);
